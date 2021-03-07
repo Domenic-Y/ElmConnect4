@@ -5962,7 +5962,8 @@ var $author$project$Connect4$viewButton = function (_int) {
 		_List_fromArray(
 			[
 				$elm$html$Html$Events$onClick(
-				$author$project$Connect4$Place(_int))
+				$author$project$Connect4$Place(_int)),
+				$elm$html$Html$Attributes$class('colButton')
 			]),
 		_List_fromArray(
 			[

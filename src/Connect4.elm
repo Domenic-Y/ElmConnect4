@@ -202,7 +202,7 @@ viewRow: Array.Array Colour -> Html Msg
 viewRow row = div [Att.class "row"] (Array.toList (Array.map viewColour row))
 
 viewButton: Int -> Html Msg
-viewButton int = (button [onClick <| Place int] [text <| String.fromInt int])
+viewButton int = (button [onClick <| Place int, Att.class "colButton"] [text <| String.fromInt int])
 
 viewColour: Colour -> Html Msg
 viewColour colour =
