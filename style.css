@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent {
+  margin:auto;
+  width:80vw;
+
+}
