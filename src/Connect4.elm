@@ -184,15 +184,25 @@ updateArray colInt rowInt board colour =
 
 view : Model -> Html Msg
 view model =
-  if model.winner == Red then
-    div [] [(viewBoard model), text "Red Wins"]
-  else if model.winner == Yellow then
-    div [] [(viewBoard model), text "Yellow Wins"]
-  else
-    if model.turnColour == Red then
-      div [] [(viewBoard model), text "Red's Turn"]
+    div [] [
+            Html.h1 [] [text "Connect 4"],
+            Html.h2 [] [viewText model],
+            (viewBoard model)]
+
+
+viewText: Model -> Html Msg
+viewText model =
+    if model.winner == Red then
+      text "Red Wins!"
+    else if model.winner == Yellow then
+      text "Yellow Wins!"
     else
-      div [] [(viewBoard model), text "Yellow's Turn"]
+      if model.turnColour == Red then
+        text "Red's Turn"
+      else
+        text "Yellow's Turn"
+
+
 viewBoard: Model -> Html Msg
 viewBoard model = div [Att.class "parent"]
     [div [ Att.class "row"] <| List.map (viewButton) (List.range 0 6)

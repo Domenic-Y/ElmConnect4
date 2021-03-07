@@ -5924,6 +5924,8 @@ var $author$project$Connect4$update = F2(
 			{board: newBoard, turnColour: $author$project$Connect4$Red})))) : model;
 	});
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$json$Json$Encode$string = _Json_wrap;
@@ -6101,36 +6103,31 @@ var $author$project$Connect4$viewBoard = function (model) {
 					A2($elm$core$Array$map, $author$project$Connect4$viewRow, model.board)))
 			]));
 };
+var $author$project$Connect4$viewText = function (model) {
+	return _Utils_eq(model.winner, $author$project$Connect4$Red) ? $elm$html$Html$text('Red Wins!') : (_Utils_eq(model.winner, $author$project$Connect4$Yellow) ? $elm$html$Html$text('Yellow Wins!') : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? $elm$html$Html$text('Red\'s Turn') : $elm$html$Html$text('Yellow\'s Turn')));
+};
 var $author$project$Connect4$view = function (model) {
-	return _Utils_eq(model.winner, $author$project$Connect4$Red) ? A2(
+	return A2(
 		$elm$html$Html$div,
 		_List_Nil,
 		_List_fromArray(
 			[
-				$author$project$Connect4$viewBoard(model),
-				$elm$html$Html$text('Red Wins')
-			])) : (_Utils_eq(model.winner, $author$project$Connect4$Yellow) ? A2(
-		$elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				$author$project$Connect4$viewBoard(model),
-				$elm$html$Html$text('Yellow Wins')
-			])) : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? A2(
-		$elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				$author$project$Connect4$viewBoard(model),
-				$elm$html$Html$text('Red\'s Turn')
-			])) : A2(
-		$elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				$author$project$Connect4$viewBoard(model),
-				$elm$html$Html$text('Yellow\'s Turn')
-			]))));
+				A2(
+				$elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Connect 4')
+					])),
+				A2(
+				$elm$html$Html$h2,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$author$project$Connect4$viewText(model)
+					])),
+				$author$project$Connect4$viewBoard(model)
+			]));
 };
 var $author$project$Connect4$main = $elm$browser$Browser$sandbox(
 	{init: $author$project$Connect4$init, update: $author$project$Connect4$update, view: $author$project$Connect4$view});
