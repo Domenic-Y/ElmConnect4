@@ -258,7 +258,7 @@ viewBoard model =
       <| List.map (viewButton)(List.range 0 6)
     ,div
       []
-      Array.toList <| Array.map viewRow (model.board)]
+      <| Array.toList <| Array.map viewRow (model.board)]
 
 viewRow: Array.Array Colour -> Html Msg
 viewRow row =
