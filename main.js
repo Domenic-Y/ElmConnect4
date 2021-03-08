@@ -5923,11 +5923,7 @@ var $author$project$Connect4$update = F2(
 			model,
 			{board: newBoard, turnColour: $author$project$Connect4$Red})))) : model;
 	});
-var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5937,6 +5933,17 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $elm$html$Html$p = _VirtualDom_node('p');
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $author$project$Connect4$Place = function (a) {
 	return {$: 'Place', a: a};
 };
@@ -6103,8 +6110,39 @@ var $author$project$Connect4$viewBoard = function (model) {
 					A2($elm$core$Array$map, $author$project$Connect4$viewRow, model.board)))
 			]));
 };
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $author$project$Connect4$viewText = function (model) {
-	return _Utils_eq(model.winner, $author$project$Connect4$Red) ? $elm$html$Html$text('Red Wins!') : (_Utils_eq(model.winner, $author$project$Connect4$Yellow) ? $elm$html$Html$text('Yellow Wins!') : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? $elm$html$Html$text('Red\'s Turn') : $elm$html$Html$text('Yellow\'s Turn')));
+	return _Utils_eq(model.winner, $author$project$Connect4$Red) ? A2(
+		$elm$html$Html$h2,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('textRed')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Red Wins!')
+			])) : (_Utils_eq(model.winner, $author$project$Connect4$Yellow) ? A2(
+		$elm$html$Html$h2,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('textYellow')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Yellow Wins!')
+			])) : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? A2(
+		$elm$html$Html$h2,
+		_List_Nil,
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Red\'s Turn')
+			])) : A2(
+		$elm$html$Html$h2,
+		_List_Nil,
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Yellow\'s Turn')
+			]))));
 };
 var $author$project$Connect4$view = function (model) {
 	return A2(
@@ -6119,14 +6157,28 @@ var $author$project$Connect4$view = function (model) {
 					[
 						$elm$html$Html$text('Connect 4')
 					])),
+				$author$project$Connect4$viewText(model),
+				$author$project$Connect4$viewBoard(model),
 				A2(
-				$elm$html$Html$h2,
-				_List_Nil,
+				$elm$html$Html$p,
 				_List_fromArray(
 					[
-						$author$project$Connect4$viewText(model)
-					])),
-				$author$project$Connect4$viewBoard(model)
+						$elm$html$Html$Attributes$class('footerText')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Made by Domenic Yates. Written in Elm. '),
+						A2(
+						$elm$html$Html$a,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$href('https://github.com/Domenic-Y/ElmConnect4')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Code Here.')
+							]))
+					]))
 			]));
 };
 var $author$project$Connect4$main = $elm$browser$Browser$sandbox(

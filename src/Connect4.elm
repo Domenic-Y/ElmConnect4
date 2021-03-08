@@ -185,21 +185,22 @@ view : Model -> Html Msg
 view model =
     div [] [
             Html.h1 [] [text "Connect 4"],
-            Html.h2 [] [viewText model],
-            (viewBoard model)]
+            viewText model,
+            (viewBoard model),
+            Html.p [Att.class "footerText"] [text "Made by Domenic Yates. Written in Elm. ", Html.a [Att.href "https://github.com/Domenic-Y/ElmConnect4"] [text "Code Here."]]]
 
 
 viewText: Model -> Html Msg
 viewText model =
     if model.winner == Red then
-      text "Red Wins!"
+      Html.h2 [Att.class "textRed"] [text "Red Wins!"]
     else if model.winner == Yellow then
-      text "Yellow Wins!"
+      Html.h2 [Att.class "textYellow"] [text "Yellow Wins!"]
     else
       if model.turnColour == Red then
-        text "Red's Turn"
+        Html.h2 [] [text "Red's Turn"]
       else
-        text "Yellow's Turn"
+        Html.h2 [] [text "Yellow's Turn"]
 
 
 viewBoard: Model -> Html Msg

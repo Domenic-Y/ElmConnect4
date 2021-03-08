@@ -33,3 +33,37 @@ h2 {
   height: 40px;
   font-size: 1.5em;
 }
+
+.colButton:hover {
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+}
+
+.textRed {
+  color: Red;
+  background-color: #e7e7e7;
+  max-width: 200px;
+  border-radius: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding:10px;
+}
+
+.textYellow {
+  color: Yellow;
+  background-color: #707070;
+  max-width: 200px;
+  border-radius: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding:10px;
+}
+
+
+.footerText {
+  text-align: center;
+  margin-top: 100px;
+}
