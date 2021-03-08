@@ -5689,7 +5689,6 @@ var $author$project$Connect4$check4Down = function (board) {
 	return $author$project$Connect4$check4Across(
 		$author$project$Connect4$rotateBoard(board));
 };
-var $elm$core$Debug$log = _Debug_log;
 var $elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
 		var _v0 = f(mx);
@@ -5751,9 +5750,9 @@ var $elm_community$array_extra$Array$Extra$map2 = F2(
 			A2($elm$core$Array$map, f, ws));
 	});
 var $author$project$Connect4$getNegDiagonals = F2(
-	function (board, int1) {
+	function (board, _int) {
 		var yRange = $elm$core$Array$fromList(
-			A2($elm$core$List$range, int1, 8));
+			A2($elm$core$List$range, _int, 8));
 		var xRange = $elm$core$Array$fromList(
 			A2($elm$core$List$range, 0, 6));
 		return A2(
@@ -5779,22 +5778,17 @@ var $author$project$Connect4$rotateBoardNeg15 = function (board) {
 		$author$project$Connect4$getNegDiagonals(board),
 		xRange);
 };
-var $elm$core$Debug$toString = _Debug_toString;
 var $author$project$Connect4$checkNegDiagonals = function (board) {
-	return A2(
-		$elm$core$Debug$log,
-		$elm$core$Debug$toString(
-			$author$project$Connect4$rotateBoardNeg15(board)),
-		$author$project$Connect4$check4Across(
-			$author$project$Connect4$rotateBoardNeg15(board)));
+	return $author$project$Connect4$check4Across(
+		$author$project$Connect4$rotateBoardNeg15(board));
 };
 var $author$project$Connect4$getPosDiagonals = F2(
-	function (board, int1) {
+	function (board, _int) {
 		var yRange = $elm$core$Array$fromList(
 			$elm$core$List$reverse(
-				A2($elm$core$List$range, 0, int1)));
+				A2($elm$core$List$range, 0, _int)));
 		var xRange = $elm$core$Array$fromList(
-			A2($elm$core$List$range, 0, int1));
+			A2($elm$core$List$range, 0, _int));
 		return A2(
 			$elm$core$Array$map,
 			$elm$core$Maybe$withDefault($author$project$Connect4$Empty),
@@ -5912,12 +5906,9 @@ var $author$project$Connect4$update = F2(
 	function (msg, model) {
 		var _int = msg.a;
 		var newBoard = A4($author$project$Connect4$updateArray, _int, 5, model.board, model.turnColour);
-		return _Utils_eq(model.winner, $author$project$Connect4$Empty) ? ($author$project$Connect4$check4s(newBoard) ? A2(
-			$elm$core$Debug$log,
-			'win',
-			_Utils_update(
-				model,
-				{board: newBoard, turnColour: $author$project$Connect4$Yellow, winner: model.turnColour})) : (_Utils_eq(model.board, newBoard) ? model : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? _Utils_update(
+		return _Utils_eq(model.winner, $author$project$Connect4$Empty) ? ($author$project$Connect4$check4s(newBoard) ? _Utils_update(
+			model,
+			{board: newBoard, turnColour: $author$project$Connect4$Yellow, winner: model.turnColour}) : (_Utils_eq(model.board, newBoard) ? model : (_Utils_eq(model.turnColour, $author$project$Connect4$Red) ? _Utils_update(
 			model,
 			{board: newBoard, turnColour: $author$project$Connect4$Yellow}) : _Utils_update(
 			model,
